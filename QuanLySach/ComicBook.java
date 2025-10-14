@@ -3,6 +3,15 @@ public class ComicBook extends Book{
 
     private static int count = 0;
 
+    public static void updateCount(String id )
+    {
+        try
+        {
+            int num = Integer.parseInt(id.substring(2));
+            if ( num > count ) count = num;
+        } catch (NumberFormatException e) {}
+    }
+
 
     public ComicBook(String title , String author , double price , int quantity ){
         super("CM" + String.format("%03d", ++count),title, author, price, quantity);

@@ -40,12 +40,16 @@ public class QuanLySach implements Action {
 
                     if (id.startsWith("RF")) {
                         book = new ReferenceBook(id, title, author, price, quantity);
+                        ReferenceBook.updateCount(id);
                     } else if (id.startsWith("CM")) {
                         book = new ComicBook(id, title, author, price, quantity);
+                        ComicBook.updateCount(id);
                     } else if (id.startsWith("NV")) {
                         book = new Novel(id, title, author, price, quantity);
+                        Novel.updateCount(id);
                     } else if (id.startsWith("TB")) {
                         book = new TextBook(id, title, author, price, quantity);
+                        TextBook.updateCount(id);
                     } else {
                         System.out.println("⚠️ Mã sách không hợp lệ: " + id);
                     }
@@ -94,6 +98,15 @@ public class QuanLySach implements Action {
             }
         } while (name.isEmpty());
 
+        String author;
+        do {
+            System.out.print("Nhập tên tác giả: ");
+            author = sc.nextLine().trim();
+            if (author.isEmpty()) {
+                System.out.println("Tên tác giả không được để trống!");
+            }
+        } while (author.isEmpty());
+
         double price = 0;
         boolean validPrice = false;
         while (!validPrice) {
@@ -105,15 +118,6 @@ public class QuanLySach implements Action {
                 System.out.println("Giá sách không hợp lệ! Vui lòng nhập lại.");
             }
         }
-
-        String author;
-        do {
-            System.out.print("Nhập tên tác giả: ");
-            author = sc.nextLine().trim();
-            if (author.isEmpty()) {
-                System.out.println("Tên tác giả không được để trống!");
-            }
-        } while (author.isEmpty());
 
         int quantity = 0;
         boolean validQuantity = false;
@@ -174,40 +178,98 @@ public class QuanLySach implements Action {
         for (Book book : ListSach) {
             if (book.getId().equalsIgnoreCase(id)) {
                 found = true;
+                int choice;
+                String decision;
+                do {
+                    System.out.println(".__________________________________________.");
+                    System.out.println("|              Menu Sửa Sách               |");
+                    System.out.println("|__________________________________________|");
+                    System.out.println("| 1. Sửa tên sách                          |");
+                    System.out.println("| 2. Sửa tên tác giả                       |");
+                    System.out.println("| 3. Sửa giá                               |");
+                    System.out.println("| 4. Sửa số lượng tồn kho                  |");
+                    System.out.println("| 5. Thoát                                 |");
+                    System.out.println("|__________________________________________|");
+                    System.out.print("Chọn một lựa chọn: ");
 
-                System.out.print("Nhập tên sách mới (bỏ trống để giữ nguyên): ");
-                String newName = sc.nextLine().trim();
-                if (!newName.isEmpty()) book.setTitle(newName);
+                    choice = sc.nextInt();
+                    sc.nextLine();
 
-                System.out.print("Nhập giá mới (bỏ trống để giữ nguyên): ");
-                String newPriceStr = sc.nextLine().trim();
-                if (!newPriceStr.isEmpty()) {
-                    try {
-                        double newPrice = Double.parseDouble(newPriceStr);
-                        book.setPrice(newPrice);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Giá không hợp lệ, giữ nguyên giá cũ.");
+                    switch (choice) {
+                        case 1:
+                            System.out.print("Nhập tên sách mới: ");
+                            String newName = sc.nextLine().trim();
+                            if (newName.isEmpty()) {
+                                System.out.println("❌ Tên không được để trống!");
+                                break;
+                            }
+                            System.out.println("Xác nhận đổi từ: " + book.getTitle() + " thành " + newName);
+                            System.out.print("Ấn Y để xác nhận, N để hủy: ");
+                            decision = sc.nextLine().trim();
+                            if (decision.equalsIgnoreCase("Y")) {
+                                book.setTitle(newName);
+                                ghiFile();
+                                System.out.println("✅ Sửa tên sách thành công!");
+                            } else System.out.println("❌ Hủy đổi tên.");
+                            break;
+
+                        case 2:
+                            System.out.print("Nhập tên tác giả mới: ");
+                            String newAuthor = sc.nextLine().trim();
+                            System.out.println("Xác nhận đổi từ: " + book.getAuthor() + " thành " + newAuthor);
+                            System.out.print("Ấn Y để xác nhận, N để hủy: ");
+                            decision = sc.nextLine().trim();
+                            if (decision.equalsIgnoreCase("Y")) {
+                                book.setAuthor(newAuthor);
+                                ghiFile();
+                                System.out.println("✅ Đổi tên tác giả thành công!");
+                            } else System.out.println("❌ Hủy đổi tên tác giả.");
+                            break;
+
+                        case 3:
+                            System.out.print("Nhập giá mới: ");
+                            String priceStr = sc.nextLine().trim();
+                            try {
+                                double newPrice = Double.parseDouble(priceStr);
+                                System.out.println("Xác nhận đổi từ: " + book.getPrice() + " thành " + newPrice);
+                                System.out.print("Ấn Y để xác nhận, N để hủy: ");
+                                decision = sc.nextLine().trim();
+                                if (decision.equalsIgnoreCase("Y")) {
+                                    book.setPrice(newPrice);
+                                    ghiFile();
+                                    System.out.println("✅ Sửa giá thành công!");
+                                } else System.out.println("❌ Hủy sửa giá.");
+                            } catch (NumberFormatException e) {
+                                System.out.println("❌ Giá không hợp lệ!");
+                            }
+                            break;
+
+                        case 4:
+                            System.out.print("Nhập số lượng tồn kho mới: ");
+                            String quantityStr = sc.nextLine().trim();
+                            try {
+                                int newQuantity = Integer.parseInt(quantityStr);
+                                System.out.println("Xác nhận đổi từ: " + book.getQuantity() + " thành " + newQuantity);
+                                System.out.print("Ấn Y để xác nhận, N để hủy: ");
+                                decision = sc.nextLine().trim();
+                                if (decision.equalsIgnoreCase("Y")) {
+                                    book.setQuantity(newQuantity);
+                                    ghiFile();
+                                    System.out.println("✅ Sửa số lượng thành công!");
+                                } else System.out.println("❌ Hủy sửa số lượng.");
+                            } catch (NumberFormatException e) {
+                                System.out.println("❌ Số lượng không hợp lệ!");
+                            }
+                            break;
+
+                        case 5:
+                            System.out.println("🔙 Trở về menu chính...");
+                            return;
+
+                        default:
+                            System.out.println("Không hợp lệ! Chọn lại.");
                     }
-                }
-
-                System.out.print("Nhập tên tác giả mới (bỏ trống để giữ nguyên): ");
-                String newAuthor = sc.nextLine().trim();
-                if (!newAuthor.isEmpty()) book.setAuthor(newAuthor);
-
-                System.out.print("Nhập số lượng mới (bỏ trống để giữ nguyên): ");
-                String newQuantityStr = sc.nextLine().trim();
-                if (!newQuantityStr.isEmpty()) {
-                    try {
-                        int newQuantity = Integer.parseInt(newQuantityStr);
-                        book.setQuantity(newQuantity);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Số lượng không hợp lệ, giữ nguyên.");
-                    }
-                }
-
-                ghiFile();
-                System.out.println("✅ Đã sửa thông tin sách có ID: " + id);
-                break;
+                } while ( choice != 5 );
             }
         }
 
@@ -215,6 +277,7 @@ public class QuanLySach implements Action {
             System.out.println("❌ Không tìm thấy sách có ID: " + id);
         }
     }
+
 
     //XÓA SÁCH
     @Override
@@ -229,9 +292,15 @@ public class QuanLySach implements Action {
         {
             if ( ListSach.get(i).getId().equalsIgnoreCase(id))
             {
-                ListSach.remove(i);
                 found = true;
-                System.out.println("Đã xóa thành công sách có id: " + id + " thành công ");
+                System.out.print("Bạn có chắc muốn xóa sách này? (Y/N): ");
+                String confirm = sc.nextLine().trim();
+                if (confirm.equalsIgnoreCase("Y")) {
+                    ListSach.remove(i);
+                    System.out.println("✅ Đã xóa thành công sách có id: " + id);
+                } else {
+                    System.out.println("❌ Hủy xóa sách.");
+                }
                 break;
             }
         }

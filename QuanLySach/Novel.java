@@ -3,6 +3,14 @@ public class Novel extends Book{
 
     private static int count = 0;
 
+    public static void updateCount(String id )
+    {
+        try
+        {
+            int num = Integer.parseInt(id.substring(2));
+            if ( num > count ) count = num;
+        } catch (NumberFormatException e) {}
+    }
 
     public Novel(String title, String author , double price, int quantity){
         super("NV" + String.format("%03d", ++count),title, author, price, quantity);

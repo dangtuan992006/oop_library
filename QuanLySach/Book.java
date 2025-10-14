@@ -34,7 +34,7 @@ public abstract class Book {
 
     //SET
     public void setID(String id) { this.id = id; }
-    public void setTitle(String tilte) { this.title = title; }
+    public void setTitle(String title) { this.title = title; }
     public void setAuthor(String author) { this.author = author; }
     public void setPrice(double price ) { this.price = price; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
