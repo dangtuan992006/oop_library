@@ -39,7 +39,7 @@ public abstract class Book {
     public void setPrice(double price ) { this.price = price; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    public abstract String getType(); // trả về loại sách
+    public abstract String getType(); // Tra ve the loai cua sach
 
     public void display() {
         System.out.printf("%-8s %-20s %-20s %-10.2f %-5d %-15s%n",

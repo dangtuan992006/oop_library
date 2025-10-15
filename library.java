@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.time.LocalDate; // thu vien ngay
 import menu.*;
 import QuanLySach.*;
-import customer.*;
+//import customer.*;
 import hoadon.*;
 
 

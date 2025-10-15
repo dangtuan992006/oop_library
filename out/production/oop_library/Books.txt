@@ -1,0 +1,20 @@
+RF001,Sách Tham Khảo Toán Học,Nguyễn Văn A,85000.0,10
+RF002,Từ Điển Anh - Việt,Trần Thị B,120000.0,8
+RF003,Bách Khoa Tri Thức,Lê Văn C,175000.0,6
+RF004,Hướng Dẫn Sử Dụng Excel,Phạm Thị D,95000.0,12
+CM001,Doraemon Tập 1,Fujiko F. Fujio,30000.0,20
+CM002,Conan Tập 100,Gosho Aoyama,35000.0,25
+CM003,Dragon Ball Super,Akira Toriyama,40000.0,18
+CM004,One Piece Tập 105,Eiichiro Oda,38000.0,15
+NV001,Nhà Giả Kim,Paulo Coelho,90000.0,12
+NV002,Đắc Nhân Tâm,Dale Carnegie,85000.0,10
+NV003,Tuổi Trẻ Đáng Giá Bao Nhiêu,Rosie Nguyễn,89000.0,9
+NV004,Tôi Thấy Hoa Vàng Trên Cỏ Xanh,Nguyễn Nhật Ánh,78000.0,15
+TB001,Lập Trình Hướng Đối Tượng Java,Lê Quang F,130000.0,6
+TB002,Phân Tích Dữ Liệu Với Python,Nguyễn Minh G,145000.0,4
+TB003,Cấu Trúc Dữ Liệu & Giải Thuật,Trần Đức H,150000.0,7
+CM005,Attack on Titan Tập 34,Hajime Isayama,42000.0,10
+NV005,Dế Mèn Phiêu Lưu Ký,Tô Hoài,75000.0,8
+RF005,1001 Mẹo Tin Học Văn Phòng,Nguyễn Quốc K,99000.0,11
+TB004,Kinh Tế Học Vi Mô,Trịnh Thu L,125000.0,5
+TB005,CSTTNT,Bao,1.0,100
