@@ -1,6 +1,8 @@
 package menu;
 import java.util.Scanner;
-
+import QuanLySach.*;
+import quanlykhachhang.*;
+// import hoadon.*;
 public class menu {
 
     public static void PrintMenu(){
@@ -26,7 +28,7 @@ public class menu {
             chosen = sc.nextInt();
             switch (chosen) {
                 case 1:
-                    
+                    MainBook.main(null);
                     break;
                 case 2:
                     
@@ -35,7 +37,7 @@ public class menu {
                     
                     break;
                 case 4:
-                    
+                    maincustomer.main();
                     break;
                 case 5:
                     return;
