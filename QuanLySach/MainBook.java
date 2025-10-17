@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class MainBook {
 
     public static void pause(Scanner sc) {
-        System.out.print("\nNhấn 0 để tiếp tục... ");
+        System.out.print("\nNhan 0 để tiep tuc... ");
         while (true) {
             String input = sc.nextLine().trim();
             if (input.equals("0")) break;
-            System.out.print("Vui lòng nhấn phím 0 để tiếp tục: ");
+            System.out.print("Vui long nhan phim 0 de tiep tuc: ");
         }
     }
 
@@ -71,7 +71,7 @@ public class MainBook {
                 case 7:
                     return;
                 default:
-                    System.out.println("Không hợp lệ");
+                    System.out.println("Khong hop le");
                     break;
             }
         } while ( choice != 7 );
