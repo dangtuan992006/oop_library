@@ -18,7 +18,7 @@ public class menu {
     
     }
 
-    public static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int chosen = 0;
 
@@ -28,7 +28,7 @@ public class menu {
             chosen = sc.nextInt();
             switch (chosen) {
                 case 1:
-                    MainBook.main(null);
+                    MainBook.main(args);
                     break;
                 case 2:
                     
@@ -37,7 +37,7 @@ public class menu {
                     
                     break;
                 case 4:
-                    maincustomer.main();
+                    maincustomer.main(args);
                     break;
                 case 5:
                     return;

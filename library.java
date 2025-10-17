@@ -8,7 +8,7 @@ import hoadon.*;
 public class library{
     public static void main(String[] args) {
       menu mn = new menu();
-        mn.main();
+        mn.main(args);
     }
 }
 

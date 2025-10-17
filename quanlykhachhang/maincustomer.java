@@ -1,17 +1,14 @@
 package quanlykhachhang;
 
-import quanlydanhsach.*;
-import menu.*;
+// import quanlykhachhang.quanlydanhsach;
 import java.util.Scanner;
 
 public class maincustomer {
 
-    public static void main(){
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int choice;
-        menu mn = new menu();
-        quanlydanhsach qlds = new quanlydanhsach();
-
+        quanlydanhsachkhachhang qlds = new quanlydanhsachkhachhang();
 
 
         do {
@@ -32,7 +29,8 @@ public class maincustomer {
 
             switch (choice) {
                 case 1:
-                    qlds.hiendanhsach();
+                    // qlds.hiendanhsach();
+                    qlds.docdulieu();
                 break;
                 case 2:
                     qlds.them();
@@ -47,12 +45,10 @@ public class maincustomer {
                     qlds.timkiemkhachhang();
                     break;
                 case 6:
-                    qlds.hientaitongkhachhang();
+                    qlds.hientongkhachhang();
                     break;
                 case 7:
-                    mn.main();
-                    break;
-
+                    return;
                 default:
                 System.out.println("Lua chon khong hop le");
                     break;
