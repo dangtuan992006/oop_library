@@ -17,4 +17,4 @@ CM005,Attack on Titan Tập 34,Hajime Isayama,42000.0,10
 NV005,Dế Mèn Phiêu Lưu Ký,Tô Hoài,75000.0,8
 RF005,1001 Mẹo Tin Học Văn Phòng,Nguyễn Quốc K,99000.0,11
 TB004,Kinh Tế Học Vi Mô,Trịnh Thu L,125000.0,5
-TB006,TTNCKH,Nguyen Quoc Binh,99000.0,100
+TB005,CSTTNT,Bao,1.0,100

@@ -9,12 +9,12 @@ import java.util.Scanner;
 public class QuanLySach implements Action {
     public ArrayList<Book> ListSach;
 
-    // ✅ Constructor
+    // Constructor
     public QuanLySach() {
         ListSach = new ArrayList<>();
     }
 
-    // ✅ Doc du lieu tu file Books.txt
+    // Doc du lieu tu file Books.txt
     @Override
     public void docFile() {
         ComicBook.resetCount();
@@ -50,21 +50,21 @@ public class QuanLySach implements Action {
                         book = new TextBook(id, title, author, price, quantity);
                         TextBook.updateCount(id);
                     } else {
-                        System.out.println("⚠️ Ma sach khong hop le: " + id);
+                        System.out.println("Ma sach khong hop le: " + id);
                     }
 
                     if (book != null) ListSach.add(book);
                 } else {
-                    System.out.println("⚠️ Du lieu khong hop le " + line);
+                    System.out.println("Du lieu khong hop le: " + line);
                 }
             }
-            System.out.println("✅ Doc file Books.txt thanh cong!");
+            System.out.println("Doc file Books.txt thanh cong!");
         } catch (IOException e) {
-            System.out.println("❌ Loi khi doc file: " + e.getMessage());
+            System.out.println("Loi khi doc file: " + e.getMessage());
         }
     }
 
-    // ✅ Ghi du lieu vao file Books.txt
+    // Ghi du lieu vao file Books.txt
     @Override
     public void ghiFile() {
         try (FileWriter fw = new FileWriter("Books.txt")) {
@@ -77,13 +77,13 @@ public class QuanLySach implements Action {
                                 book.getQuantity() + "\n"
                 );
             }
-            System.out.println("✅ Ghi du lieu thanh cong vao file Books.txt");
+            System.out.println("Ghi du lieu thanh cong vao file Books.txt");
         } catch (IOException e) {
-            System.out.println("❌ Loi khi ghi file: " + e.getMessage());
+            System.out.println("Loi khi ghi file: " + e.getMessage());
         }
     }
 
-    // ✅ Them sach
+    // Them sach
     @Override
     public void them() {
         Scanner sc = new Scanner(System.in);
@@ -154,18 +154,18 @@ public class QuanLySach implements Action {
                 newBook = new ReferenceBook(name, author, price, quantity);
                 break;
             default:
-                System.out.println("❌ The loai khong hop le!");
+                System.out.println("The loai khong hop le!");
                 return;
         }
 
         if (newBook != null) {
             ListSach.add(newBook);
             ghiFile();
-            System.out.println("✅ Da them sach moi voi ID: " + newBook.getId());
+            System.out.println("Da them sach moi voi ID: " + newBook.getId());
         }
     }
 
-    // ✅ Sua thong tin sach
+    // Sua thong tin sach
     @Override
     public void sua() {
         Scanner sc = new Scanner(System.in);
@@ -198,30 +198,30 @@ public class QuanLySach implements Action {
                             System.out.print("Nhap ten sach moi: ");
                             String newName = sc.nextLine().trim();
                             if (newName.isEmpty()) {
-                                System.out.println("❌ Ten khong duoc de trong!");
+                                System.out.println("Ten khong duoc de trong!");
                                 break;
                             }
-                            System.out.println("Xac nhan doi tu: " + book.getTitle() + " thanh " + newName);
+                            System.out.println("Xac nhan doi tu " + book.getTitle() + " thanh " + newName);
                             System.out.print("An Y de xac nhan, N de huy: ");
                             decision = sc.nextLine().trim();
                             if (decision.equalsIgnoreCase("Y")) {
                                 book.setTitle(newName);
                                 ghiFile();
-                                System.out.println("✅ Sua ten sach thanh cong!");
-                            } else System.out.println("❌ Huy doi ten.");
+                                System.out.println("Sua ten sach thanh cong!");
+                            } else System.out.println("Huy doi ten.");
                             break;
 
                         case 2:
                             System.out.print("Nhap ten tac gia moi: ");
                             String newAuthor = sc.nextLine().trim();
-                            System.out.println("Xac nhan doi tu: " + book.getAuthor() + " thanh " + newAuthor);
+                            System.out.println("Xac nhan doi tu " + book.getAuthor() + " thanh " + newAuthor);
                             System.out.print("An Y de xac nhan, N de huy: ");
                             decision = sc.nextLine().trim();
                             if (decision.equalsIgnoreCase("Y")) {
                                 book.setAuthor(newAuthor);
                                 ghiFile();
-                                System.out.println("✅ Doi ten tac gia thanh cong!");
-                            } else System.out.println("❌ Huy doi ten tac gia.");
+                                System.out.println("Doi ten tac gia thanh cong!");
+                            } else System.out.println("Huy doi ten tac gia.");
                             break;
 
                         case 3:
@@ -229,16 +229,16 @@ public class QuanLySach implements Action {
                             String priceStr = sc.nextLine().trim();
                             try {
                                 double newPrice = Double.parseDouble(priceStr);
-                                System.out.println("Xac nhan doi tu: " + book.getPrice() + " thanh " + newPrice);
+                                System.out.println("Xac nhan doi tu " + book.getPrice() + " thanh " + newPrice);
                                 System.out.print("An Y de xac nhan, N de huy: ");
                                 decision = sc.nextLine().trim();
                                 if (decision.equalsIgnoreCase("Y")) {
                                     book.setPrice(newPrice);
                                     ghiFile();
-                                    System.out.println("✅ Sua gia thanh cong!");
-                                } else System.out.println("❌ Huy sua gia.");
+                                    System.out.println("Sua gia thanh cong!");
+                                } else System.out.println("Huy sua gia.");
                             } catch (NumberFormatException e) {
-                                System.out.println("❌ Gia khong hop le!");
+                                System.out.println("Gia khong hop le!");
                             }
                             break;
 
@@ -247,21 +247,21 @@ public class QuanLySach implements Action {
                             String quantityStr = sc.nextLine().trim();
                             try {
                                 int newQuantity = Integer.parseInt(quantityStr);
-                                System.out.println("Xac nhan doi tu: " + book.getQuantity() + " thanh " + newQuantity);
+                                System.out.println("Xac nhan doi tu " + book.getQuantity() + " thanh " + newQuantity);
                                 System.out.print("An Y de xac nhan, N de huy: ");
                                 decision = sc.nextLine().trim();
                                 if (decision.equalsIgnoreCase("Y")) {
                                     book.setQuantity(newQuantity);
                                     ghiFile();
-                                    System.out.println("✅ Sua so luong thanh cong!");
-                                } else System.out.println("❌ Huy sua so luong.");
+                                    System.out.println("Sua so luong thanh cong!");
+                                } else System.out.println("Huy sua so luong.");
                             } catch (NumberFormatException e) {
-                                System.out.println("❌ So luong khong hop le!");
+                                System.out.println("So luong khong hop le!");
                             }
                             break;
 
                         case 5:
-                            System.out.println("🔙 Tro ve menu chinh...");
+                            System.out.println("Tro ve menu chinh...");
                             return;
 
                         default:
@@ -272,15 +272,15 @@ public class QuanLySach implements Action {
         }
 
         if (!found) {
-            System.out.println("❌ Khong tim thay sach co ID: " + id);
+            System.out.println("Khong tim thay sach co ID: " + id);
         }
     }
 
-    // ✅ Xoa sach
+    // Xoa sach
     @Override
     public void xoa() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Hay nhap id sach can xoa: ");
+        System.out.println("Nhap id sach can xoa: ");
         String id = sc.nextLine().trim();
 
         boolean found = false;
@@ -291,24 +291,24 @@ public class QuanLySach implements Action {
                 String confirm = sc.nextLine().trim();
                 if (confirm.equalsIgnoreCase("Y")) {
                     ListSach.remove(i);
-                    System.out.println("✅ Da xoa thanh cong sach co id: " + id);
+                    System.out.println("Da xoa thanh cong sach co id: " + id);
                 } else {
-                    System.out.println("❌ Huy xoa sach.");
+                    System.out.println("Huy xoa sach.");
                 }
                 break;
             }
         }
         if (!found) {
-            System.out.println("Khong tim thay sach co id tuong tu: " + id);
+            System.out.println("Khong tim thay sach co id: " + id);
         }
         ghiFile();
     }
 
-    // ✅ Tim kiem sach
+    // Tim kiem sach
     @Override
     public void timkiem() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Hay nhap id sach de tim kiem ");
+        System.out.println("Nhap id sach de tim kiem: ");
         String id = sc.nextLine().trim();
         boolean found = false;
         for (Book book : ListSach) {
@@ -319,7 +319,7 @@ public class QuanLySach implements Action {
             }
         }
         if (!found) {
-            System.out.println("Khong tim thay sach co id tuong tu: " + id);
+            System.out.println("Khong tim thay sach co id: " + id);
         }
     }
 
@@ -327,27 +327,27 @@ public class QuanLySach implements Action {
         boolean found = false;
         for (Book book : ListSach) {
             if (book.getId().equalsIgnoreCase(id)) {
-                System.out.println("Da tim thay sach co id tuong tu: " + id);
+                System.out.println("Da tim thay sach co id: " + id);
                 found = true;
                 book.display();
                 return book;
             }
         }
         if (!found) {
-            System.out.println("Khong tim thay sach co id tuong tu: " + id);
+            System.out.println("Khong tim thay sach co id: " + id);
         }
-        System.out.println("Danh sach sach: ");
+        System.out.println("Danh sach sach:");
         hienDanhSach();
         return null;
     }
 
-    // ✅ Hien danh sach
+    // Hien danh sach
     @Override
     public void hienDanhSach() {
         System.out.println("================================================================================================================");
         System.out.printf("| %-8s | %-40s | %-20s | %-12s | %-10s |%n",
                 "ID", "TEN SACH", "TAC GIA", "GIA", "SO LUONG");
-        System.out.println("--------------------------------------------------------    --------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
         for (Book book : ListSach) {
             System.out.printf("| %-8s | %-40s | %-20s | %-12.2f | %-10d |%n",
                     book.getId(), book.getTitle(), book.getAuthor(), book.getPrice(), book.getQuantity());
@@ -355,7 +355,7 @@ public class QuanLySach implements Action {
         System.out.println("================================================================================================================");
     }
 
-    // ✅ Dem hang ton
+    // Dem hang ton
     public static void demHangTon(QuanLySach quanLySach, String bookType) {
         int total = 0;
         for (Book book : quanLySach.ListSach) {
@@ -363,6 +363,6 @@ public class QuanLySach implements Action {
                 total++;
             }
         }
-        System.out.println("So hang ton cua: " + bookType + " la: " + total);
+        System.out.println("So hang ton cua " + bookType + " la: " + total);
     }
 }
