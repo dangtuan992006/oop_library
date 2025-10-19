@@ -1,20 +1,20 @@
-D001,Le Hoang Phuc,"254 Nguyen Trai, Quan Thanh Xuan, Ha Noi",0987654321,Diamond
-G002,Tran Ngoc Mai,"12B Ly Thuong Kiet, Quan Hoan Kiem, Ha Noi",0912345678,Gold
-S003,Pham Van Hung,"88 Vo Van Tan, Quan 3, Thanh pho Ho Chi Minh",0903112233,Silver
-D004,Nguyen Thi Lan,"310 Bach Dang, Quan Hai Chau, Thanh pho Da Nang",0935889900,Diamond
-G005,Hoang Minh Duc,"45A Hung Vuong, Quan Ninh Kieu, Thanh pho Can Tho",0977456123,Gold
-S006,Vu Anh Tuan,"72 Pasteur, Quan 1, Thanh pho Ho Chi Minh",0945678901,Silver
-D007,Dang Thuy Linh,"190 Cau Giay, Quan Cau Giay, Ha Noi",0966554433,Diamond
-G008,Phan Quoc Bao,"67 Tran Phu, Quan Son Tra, Thanh pho Da Nang",0922789456,Gold
-S009,Bui Gia Huy,"55 Nguyen Van Cu, Quan Long Bien, Ha Noi",0999888777,Silver
-D010,Vo Phuong Thao,"111 Dien Bien Phu, Quan Binh Thanh, TP. Ho Chi Minh",0909123789,Diamond
-G011,Ngo Thanh Tung,"23 Nguyen Thi Minh Khai, Quan 1, TP. Ho Chi Minh",0918765432,Gold
-S012,Truong Hai Yen,"99 Vo Nguyen Giap, Quan Ngu Hanh Son, TP. Da Nang",0955234567,Silver
-D013,Luong Bao Chau,"15 Tran Hung Dao, Quan Hoan Kiem, Ha Noi",0933123456,Diamond
-G014,Dinh Quang Vinh,"404 Le Duan, Quan Thanh Khe, Thanh pho Da Nang",0944987654,Gold
-S015,Mai Tien Dung,"82 Hoang Dieu, Quan Ba Dinh, Ha Noi",0988111222,Silver
-D016,Ho Thi Kim Anh,"789 Cach Mang Thang 8, Quan 10, TP. Ho Chi Minh",0978563412,Diamond
-G017,Doan Minh Khang,"18 Ly Tu Trong, Quan Ninh Kieu, Thanh pho Can Tho",0911223344,Gold
-S018,Lam Tuan Kiet,"34 Hai Ba Trung, Quan Hai Chau, Thanh pho Da Nang",0905654321,Silver
-D019,Ta Ngoc Ha,"222 Lang Ha, Quan Dong Da, Ha Noi",0965432109,Diamond
-G020,Ly Gia Han,"567 Xo Viet Nghe Tinh, Quan Binh Thanh, TP. HCM",0925876543,Gold
+D001,Le Hoang Phuc,254 Nguyen Trai Quan Thanh Xuan Ha Noi,0987654321,diamond
+G002,Tran Ngoc Mai,12B Ly Thuong Kiet Quan Hoan Kiem Ha Noi,0912345678,gold
+S003,Pham Van Hung,88 Vo Van Tan Quan 3 Thanh pho Ho Chi Minh,0903112233,silver
+D004,Nguyen Thi Lan,310 Bach Dang Quan Hai Chau Thanh pho Da Nang,0935889900,diamond
+G005,Hoang Minh Duc,45A Hung Vuong Quan Ninh Kieu Thanh pho Can Tho,0977456123,gold
+S006,Vu Anh Tuan,72 Pasteur Quan 1 Thanh pho Ho Chi Minh,0945678901,silver
+D007,Dang Thuy Linh,190 Cau Giay Quan Cau Giay Ha Noi,0966554433,diamond
+G008,Phan Quoc Bao,67 Tran Phu Quan Son Tra Thanh pho Da Nang,0922789456,gold
+S009,Bui Gia Huy,55 Nguyen Van Cu Quan Long Bien Ha Noi,0999888777,silver
+D010,Vo Phuong Thao,111 Dien Bien Phu Quan Binh Thanh Thanh pho Ho Chi Minh,0909123789,diamond
+G011,Ngo Thanh Tung,23 Nguyen Thi Minh Khai Quan 1 Thanh pho Ho Chi Minh,0918765432,gold
+S012,Truong Hai Yen,99 Vo Nguyen Giap Quan Ngu Hanh Son Thanh pho Da Nang,0955234567,silver
+D013,Luong Bao Chau,15 Tran Hung Dao Quan Hoan Kiem Ha Noi,0933123456,diamond
+G014,Dinh Quang Vinh,404 Le Duan Quan Thanh Khe Thanh pho Da Nang,0944987654,gold
+S015,Mai Tien Dung,82 Hoang Dieu Quan Ba Dinh Ha Noi,0988111222,silver
+D016,Ho Thi Kim Anh,789 Cach Mang Thang 8 Quan 10 Thanh pho Ho Chi Minh,0978563412,diamond
+G017,Doan Minh Khang,18 Ly Tu Trong Quan Ninh Kieu Thanh pho Can Tho,0911223344,gold
+S018,Lam Tuan Kiet,34 Hai Ba Trung Quan Hai Chau Thanh pho Da Nang,0905654321,silver
+D019,Ta Ngoc Ha,222 Lang Ha Quan Dong Da Ha Noi,0965432109,diamond
+G020,Ly Gia Han,567 Xo Viet Nghe Tinh Quan Binh Thanh Thanh pho Ho Chi Minh,0925876543,gold
