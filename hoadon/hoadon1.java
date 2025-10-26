@@ -1,24 +1,57 @@
 package QuanLyHoaDon;
 import java.util.ArrayList;
 
-public class SanPham {
+abstract class Nguoi {
+    protected String id;
+    protected String ten;
+    protected String sdt;
+
+ public Nguoi(String id, String ten, String sdt) {
+        this.id = id;
+        this.ten = ten;
+        this.sdt = sdt;
+    }
+}
+class KhachHang extends Nguoi {
+    private String diaChi;
+
+    public KhachHang(String id, String ten, String sdt, String diaChi) {
+        super(id, ten, sdt);
+        this.diaChi = diaChi;
+    }
+
+    public String getDiaChi() { return diaChi; }
+    public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
+
+    @Override
+    public void hienThiThongTin() {
+        System.out.println("KH[ID=" + id + ", Tên=" + ten + ", SĐT=" + sdt + ", Đ/c=" + diaChi + "]");
+    }
+}
+
+ abstract class SanPham {
     private String idSanPham;
     private String tenSanPham;
     private double giaSanPham;
     private int soLuong;
+    private static int demSanPham = 0;
+
 
     public SanPham(String idSanPham, String tenSanPham, double giaSanPham, int soLuong) {
         this.idSanPham = idSanPham;
         this.tenSanPham = tenSanPham;
         this.giaSanPham = giaSanPham;
         this.soLuong = soLuong;
+        demSanPham++;
     }
-
+     public static int getTongSanPham() {
+        return demSanPham;
+    }
     public String getIdSanPham() { 
         return idSanPham; 
     }
     public String getTenSanPham() { 
-        return tenSanPham;
+        return tenSanPham;  
     }
     public double getGiaSanPham() { 
         return giaSanPham;
@@ -39,14 +72,13 @@ public class SanPham {
     public void setSoLuong(int soLuong) {
          this.soLuong = soLuong; 
     }
-
-    public void displayInfo() {
-        System.out.println("ID San Pham: " + idSanPham);
-        System.out.println("Ten San Pham: " + tenSanPham);
-        System.out.println("Gia: " + giaSanPham);
-        System.out.println("So Luong: " + soLuong);
-        System.out.println("Thanh Tien: " + (giaSanPham * soLuong));
+     public abstract double thanhTien();
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{id='" + idSanPham + "', ten='" + tenSanPham + "', gia=" + giaSanPham
+                + ", soLuong=" + soLuong + ", thanhTien=" + thanhTien() + "}";
     }
+}
 
     @Override
     public String toString() {
@@ -58,7 +90,25 @@ public class SanPham {
                 ", thanhTien=" + (giaSanPham * soLuong) +
                 '}';
     }
+    class Sach extends SanPham {
+    private String tacGia;
 
+    public Sach(String idSanPham, String tenSanPham, double giaSanPham, int soLuong, String tacGia) {
+        super(idSanPham, tenSanPham, giaSanPham, soLuong);
+        this.tacGia = tacGia;
+    }
+    public String getTacGia() { return tacGia; }
+        
+    public double thanhTien() {
+        double h = giaSanPham * soLuong;
+        return Math.h(h * 0.95 * 100.0) / 100.0; // chiet khau 5%
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (tacGia='" + tacGia + "')";
+    }
+}
 public class HoaDon {
     private String idHoaDon;
     private String idKhachHang;
