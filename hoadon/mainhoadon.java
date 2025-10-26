@@ -22,6 +22,7 @@ public class MainHoaDon
             System.out.println("| 4. Hien danh sach hoa don khach hang  theo id       |");
             System.out.println("| 5. Tim kiem hoa don theo id                         |");
             System.out.println("| 6. Quay lai menu tong                               |");
+            System.out.println("| 0. Thoat                                            |");
             System.out.println("|_____________________________________________________|");
             System.out.print("Chon mot lua chon: ");
             chon = scanner.nextInt();
@@ -45,11 +46,13 @@ public class MainHoaDon
                     break;
                 case 6:
                     return;
+                 case 0:
+                     System.out.println("Tạm biệt!");
                 default:
                     System.out.println("Lua chon khong hop le");
                     break;
             }
-        } while (chon != 6);
+        } while (chon != 7);
     }
 }
 
