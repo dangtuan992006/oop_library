@@ -2,11 +2,13 @@ package QL_NhanVien;
 
 import java.util.*;
 
-//main cua chuong trinh quan ly nhan vien
+//---main cua chuong trinh quan ly nhan vien:
 public class QL_NhanVien {
     public static void main(String[] args){
         ArrayList<NhanVien> ds = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+
+        //---khoi tao cac lop chuc nang:
         Menu menu = new Menu();
         ThemNV them = new ThemNV();
         XoaNV xoa = new XoaNV();
@@ -14,7 +16,8 @@ public class QL_NhanVien {
         TimNV tim = new TimNV();
         ReadFile reader = new ReadFile();
         WriteFile writer = new WriteFile();
-        ds = reader.readFile("data.txt");
+        //---doc du lieu tu file:
+        ds = reader.readFile("nhanvien.txt");
         int choice = 0;
         do{
             menu.hienThiMenu();
@@ -26,27 +29,27 @@ public class QL_NhanVien {
                 continue;
             }
             switch(choice){
-                case 1:
+                case 1: //---them NV:
                     NhanVien nvMoi = them.nhap();
                     ds.add(nvMoi);
-                    writer.writeFile("data.txt", ds);
+                    writer.writeFile("nhanvien.txt", ds);
                     break;
-                case 2:
+                case 2: //---xoa NV:
                     if(xoa.xoaTheoMA(ds, sc)){
-                        writer.writeFile("data.txt", ds);
+                        writer.writeFile("nhanvien.txt", ds);
                     }
                     break;
-                case 3:
+                case 3: //---sua NV:
                     sua.suaThongTin(ds, sc);
-                    writer.writeFile("data.txt", ds);
+                    writer.writeFile("nhanvien.txt", ds);
                     break;
-                case 4:
+                case 4: //---tim NV:
                     tim.timNV(ds);
                     break;
-                case 5:
+                case 5: //---tinh luong NV:
                     TinhLuong.tinhLuong(ds);
                     break;
-                case 6:
+                case 6: //---thoat:
                     System.out.println("Thoat chuong trinh.");
                     break;
                 default:

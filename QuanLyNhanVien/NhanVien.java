@@ -9,8 +9,10 @@ public class NhanVien {
     private String sdt;
     private String email;
 
+    //---constructor khong tham so:
     public NhanVien(){}
 
+    //---constructor co tham so:
     public NhanVien(String hoTen, int tuoi, double luong, String congViec, String maNV, String sdt, String email) {
         this.hoTen = hoTen;
         this.tuoi = tuoi;
@@ -78,9 +80,11 @@ public class NhanVien {
         System.out.printf("=======================================\n");
     }
 
+    //---chuyen doi thanh chuoi de ghi file:
     public String toDataString(){
         return hoTen + "," + tuoi + "," + luong + "," + congViec + "," + maNV + "," + sdt + "," + email;
     }
+    //---in ngan gon:
     @Override
     public String toString(){
         return maNV + " - " + hoTen + " - " + congViec;

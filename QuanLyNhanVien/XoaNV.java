@@ -1,6 +1,7 @@
 package QL_NhanVien;
 
 import java.util.*;
+
 public class XoaNV {
     public boolean xoaTheoMA(ArrayList<NhanVien> ds, Scanner sc){
         System.out.print("Nhap ma nhan vien can xoa: ");
