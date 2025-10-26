@@ -1,6 +1,6 @@
 package QuanLyHoaDon;
 import QuanLyNhaSach.QuanLyNhaSach;
-public interface action2 {
+public interface Action {
     void them(QuanLyNhaSach quanLyNhaSach);
     void sua();
     void xoa();
