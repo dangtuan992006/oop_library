@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import QuanLyNhaSach.Book;
 import QuanLyNhaSach.QuanLyNhaSach;
 
-public class QuanLyHoaDon implements action2 {
+public class QuanLyHoaDon implements Action {
     private final List<HoaDon> danhSachHoaDon = new ArrayList<>();
     private static final String FILE = "HoaDon.txt";
     private final Scanner scanner = new Scanner(System.in);
