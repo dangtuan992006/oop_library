@@ -17,7 +17,7 @@ public class QL_NhanVien {
         ReadFile reader = new ReadFile();
         WriteFile writer = new WriteFile();
         //---doc du lieu tu file:
-        ds = reader.readFile("nhanvien.txt");
+        ds = reader.readFile("../database/nhanvien.txt");
         int choice = 0;
         do{
             menu.hienThiMenu();

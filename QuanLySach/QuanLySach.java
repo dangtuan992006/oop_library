@@ -22,7 +22,7 @@ public class QuanLySach implements Action {
         ReferenceBook.resetCount();
         TextBook.resetCount();
 
-        try (Scanner sc = new Scanner(new File("Books.txt"))) {
+        try (Scanner sc = new Scanner(new File("../database/Books.txt"))) {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine().trim();
                 if (line.isEmpty()) continue;

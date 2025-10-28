@@ -34,7 +34,7 @@ public class MainHoaDon {
                 scanner.next();
             }
             chon = scanner.nextInt();
-            scanner.nextLine(); // đọc bỏ dòng trống
+            scanner.nextLine(); 
 
             switch (chon) {
                 case 1:
@@ -54,10 +54,10 @@ public class MainHoaDon {
                     break;
                 case 6:
                     System.out.println("Quay lai menu tong...");
-                    return; // dừng chương trình con, quay lại menu chính
+                    return; 
                 case 0:
                     System.out.println("Tam biet!");
-                    System.exit(0); // thoát hoàn toàn
+                    System.exit(0); 
                     break;
                 default:
                     System.out.println("Lua chon khong hop le. Vui long nhap tu 0 - 6.");
