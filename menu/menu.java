@@ -1,5 +1,8 @@
 package menu;
 import java.util.Scanner;
+
+import QL_NhanVien.QL_NhanVien;
+import QuanLyHoaDon.MainHoaDon;
 import QuanLySach.*;
 import quanlykhachhang.*;
 // import hoadon.*;
@@ -31,13 +34,13 @@ public class menu {
                     MainBook.main(args);
                     break;
                 case 2:
-                    
+                    MainHoaDon.main(args);
                     break;
                 case 3:
-                    
+                    QL_NhanVien.main(args);
                     break;
                 case 4:
-                    maincustomer.main(args);
+                    mainCustomer.main(args);
                     break;
                 case 5:
                     return;

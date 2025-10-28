@@ -365,4 +365,12 @@ public class QuanLySach implements Action {
         }
         System.out.println("So hang ton cua " + bookType + " la: " + total);
     }
+    public Book searchForBill(String idSach) {
+        for (Book b : ListSach) {
+            if (b.getId().equalsIgnoreCase(idSach)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }

@@ -1,4 +1,4 @@
-RF001,Sách Tham Khảo Toán Học,Nguyễn Văn A,85000.0,10
+RF001,Sách Tham Khảo Toán Học,Nguyễn Văn A,85000.0,8
 RF002,Từ Điển Anh - Việt,Trần Thị B,120000.0,8
 RF003,Bách Khoa Tri Thức,Lê Văn C,175000.0,6
 RF004,Hướng Dẫn Sử Dụng Excel,Phạm Thị D,95000.0,12
