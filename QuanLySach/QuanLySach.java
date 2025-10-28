@@ -22,7 +22,7 @@ public class QuanLySach implements Action {
         ReferenceBook.resetCount();
         TextBook.resetCount();
 
-        try (Scanner sc = new Scanner(new File("../database/Books.txt"))) {
+        try (Scanner sc = new Scanner(new File("database/Books.txt"))) {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine().trim();
                 if (line.isEmpty()) continue;
@@ -67,7 +67,7 @@ public class QuanLySach implements Action {
     // Ghi du lieu vao file Books.txt
     @Override
     public void ghiFile() {
-        try (FileWriter fw = new FileWriter("Books.txt")) {
+        try (FileWriter fw = new FileWriter("database/Books.txt")) {
             for (Book book : ListSach) {
                 fw.write(
                         book.getId() + "," +
