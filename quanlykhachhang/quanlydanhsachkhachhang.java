@@ -153,7 +153,7 @@ public class quanlydanhsachkhachhang implements action {
 
     @Override
     public void docdulieu() {
-        try (BufferedReader input = new BufferedReader(new FileReader("khachhang.txt")))
+        try (BufferedReader input = new BufferedReader(new FileReader("database/khachhang.txt")))
         {
             String line;
             while ((line = input.readLine()) != null) {
@@ -192,7 +192,7 @@ public class quanlydanhsachkhachhang implements action {
     @Override
     public void ghidulieu(){
         try {
-            FileWriter output = new FileWriter("khachhang.txt");
+            FileWriter output = new FileWriter("database/khachhang.txt");
             for (customer kh : customerList){
                 output.write(kh.makhachhang + "," + kh.name + "," + kh.diachi + "," + kh.sodienthoai + "," + kh.loaikhachhang + "\n");
             }

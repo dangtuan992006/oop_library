@@ -7,7 +7,7 @@ import QuanLySach.QuanLySach;
 
 public class QuanLyHoaDon implements Action {
     private final List<HoaDon> danhSachHoaDon = new ArrayList<>();
-    private static final String FILE = "HoaDon.txt";
+    private static final String FILE = "database/HoaDon.txt";
     private final Scanner scanner = new Scanner(System.in);
 
     // doc du lieu tu file

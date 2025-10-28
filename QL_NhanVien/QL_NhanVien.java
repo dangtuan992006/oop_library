@@ -17,7 +17,7 @@ public class QL_NhanVien {
         ReadFile reader = new ReadFile();
         WriteFile writer = new WriteFile();
         //---doc du lieu tu file:
-        ds = reader.readFile("nhanvien.txt");
+        ds = reader.readFile("database/nhanvien.txt");
         int choice = 0;
         do{
             menu.hienThiMenu();
@@ -32,16 +32,16 @@ public class QL_NhanVien {
                 case 1: //---them NV:
                     NhanVien nvMoi = them.nhap();
                     ds.add(nvMoi);
-                    writer.writeFile("nhanvien.txt", ds);
+                    writer.writeFile("database/nhanvien.txt", ds);
                     break;
                 case 2: //---xoa NV:
                     if(xoa.xoaTheoMA(ds, sc)){
-                        writer.writeFile("nhanvien.txt", ds);
+                        writer.writeFile("database/nhanvien.txt", ds);
                     }
                     break;
                 case 3: //---sua NV:
                     sua.suaThongTin(ds, sc);
-                    writer.writeFile("nhanvien.txt", ds);
+                    writer.writeFile("database/nhanvien.txt", ds);
                     break;
                 case 4: //---tim NV:
                     tim.timNV(ds);
