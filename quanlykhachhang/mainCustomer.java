@@ -5,7 +5,7 @@ public class mainCustomer {
         quanlydanhsachkhachhang qlds = new quanlydanhsachkhachhang();
         
         int choice;
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         qlds.docdulieu();
         
 
@@ -22,8 +22,16 @@ public class mainCustomer {
             System.out.println(("| 7. Ve lai menu tong                               |"));
             System.out.println(("|___________________________________________________|"));
             System.out.print(("Nhap lua chon: "));
-            choice = sc.nextInt();
-            sc.nextLine();
+            
+            
+            
+            
+            while (!scanner.hasNextInt()) {
+                System.out.print("Vui long nhap so nguyen: ");
+                scanner.next();
+            }
+            choice = scanner.nextInt();
+            scanner.nextLine();
             switch(choice){
                 case 1:
                     qlds.hiendanhsach();
@@ -50,7 +58,6 @@ public class mainCustomer {
                 break;
             }
         }while(choice != 7);
-        sc.close();
     }
     
 }

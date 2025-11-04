@@ -7,7 +7,7 @@ S006,Vu Anh Tuan,72 Pasteur Quan 1 Thanh pho Ho Chi Minh,0945678901,silver
 D007,Dang Thuy Linh,190 Cau Giay Quan Cau Giay Ha Noi,0966554433,diamond
 G008,Phan Quoc Bao,67 Tran Phu Quan Son Tra Thanh pho Da Nang,0922789456,gold
 S009,Bui Gia Huy,55 Nguyen Van Cu Quan Long Bien Ha Noi,0999888777,silver
-D010,Vo Phuong Thao,111 Dien Bien Phu Quan Binh Thanh Thanh pho Ho Chi Minh,0909123789,diamond
+D010,Skibi Tolet,47 duong Rizzer Tinh meme sigma city,03492233421,diamond
 G011,Ngo Thanh Tung,23 Nguyen Thi Minh Khai Quan 1 Thanh pho Ho Chi Minh,0918765432,gold
 S012,Truong Hai Yen,99 Vo Nguyen Giap Quan Ngu Hanh Son Thanh pho Da Nang,0955234567,silver
 D013,Luong Bao Chau,15 Tran Hung Dao Quan Hoan Kiem Ha Noi,0933123456,diamond

@@ -108,13 +108,19 @@ public class quanlydanhsachkhachhang implements action {
                 kh.sodienthoai = sc.nextLine();
                 System.out.println("Nhap loai khach hang: ");
                 kh.loaikhachhang = sc.nextLine();
+                while (!kh.loaikhachhang.equals("diamond")
+                        && !kh.loaikhachhang.equals("gold")
+                        && !kh.loaikhachhang.equals("silver")
+                        ){
+                    System.out.println("vui long nhap lai ma");
+                    kh.loaikhachhang = sc.nextLine();
+                }
                 ghidulieu();
                 System.out.println("Sua thanh cong!");
                 return;
             }
         }
         System.out.println("Khong tim thay khach hang!");
-        sc.close();
         stop();
     }
     @Override
@@ -153,7 +159,7 @@ public class quanlydanhsachkhachhang implements action {
 
     @Override
     public void docdulieu() {
-        try (BufferedReader input = new BufferedReader(new FileReader("../database/database/khachhang.txt")))
+        try (BufferedReader input = new BufferedReader(new FileReader("database/khachhang.txt")))
         {
             String line;
             while ((line = input.readLine()) != null) {
