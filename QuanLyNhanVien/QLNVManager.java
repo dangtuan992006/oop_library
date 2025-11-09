@@ -13,19 +13,19 @@ public class QLNVManager implements Action {
     public void them(ArrayList<NhanVien> ds) {
         NhanVien nv = themNV.nhap();
         ds.add(nv);
-        WriteFile.writeFile("nhanvien.txt", ds);
+        WriteFile.writeFile("database/nhanvien.txt", ds);
     }
     @Override
     public void xoa(ArrayList<NhanVien> ds, Scanner sc){
         boolean changed = xoaNV.xoaTheoMA(ds, sc);
         if(changed){
-            WriteFile.writeFile("nhanvien.txt", ds);
+            WriteFile.writeFile("database/nhanvien.txt", ds);
         }
     }
     @Override
     public void sua(ArrayList<NhanVien> ds, Scanner sc){
         suaNV.suaThongTin(ds, sc);
-        WriteFile.writeFile("nhanvien.txt", ds);
+        WriteFile.writeFile("database/nhanvien.txt", ds);
     }
     @Override
     public void tim(ArrayList<NhanVien> ds, Scanner sc){
@@ -56,8 +56,8 @@ public class QLNVManager implements Action {
         WriteFile.writeFile(filename, ds);
     }
     @Override
-    public void tinhLuong(ArrayList<NhanVien> ds, Scanner sc){
-        TinhLuong.tinhLuong(ds);
-        WriteFile.writeFile("NhanVien.txt", ds);
+    public void tinhLuong(ArrayList<NhanVien> ds){
+        TinhLuong.tinhLuong(ds, new Scanner(System.in));
+        WriteFile.writeFile("database/nhanvien.txt", ds);
     }
 }

@@ -14,7 +14,7 @@ public class QL_NhanVien {
         Action quanLy = new QLNVManager();
 
         //---doc du lieu tu file:
-        quanLy.docFile("nhanvien.txt", ds);
+        quanLy.docFile("database/nhanvien.txt", ds);
         int choice = 0;
         do{
             menu.hienThiMenu();
@@ -39,7 +39,7 @@ public class QL_NhanVien {
                     quanLy.tim(ds, sc);
                     break;
                 case 5: //---tinh luong NV:
-                    quanLy.tinhLuong(ds, sc);
+                    quanLy.tinhLuong(ds);
                     break;
                 case 6: //---thoat:
                     System.out.println("Thoat chuong trinh.");

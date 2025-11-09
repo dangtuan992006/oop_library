@@ -3,12 +3,11 @@ package QuanLyNhanVien;
 import java.util.*;
 
 public class TinhLuong{
-    public static void tinhLuong(ArrayList<NhanVien> ds){
+    public static void tinhLuong(ArrayList<NhanVien> ds, Scanner sc){
         if(ds.isEmpty()){
             System.out.println("Danh sach trong.");
             return;
         }
-        Scanner sc = new Scanner(System.in);
         System.out.println("===Tinh luong nhan vien===");
         System.out.print("Nhap ma nhan vien can tinh luong: ");
         String ma = sc.nextLine().trim();
