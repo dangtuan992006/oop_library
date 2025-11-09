@@ -1,10 +1,10 @@
     package menu;
     import java.util.Scanner;
 
-    import QL_NhanVien.QL_NhanVien;
-    import QuanLyHoaDon.MainHoaDon;
-    import QuanLySach.*;
-    import quanlykhachhang.*;
+import QuanLyHoaDon.MainHoaDon;
+import QuanLyNhanVien.QL_NhanVien;
+import QuanLySach.MainBook;
+    import quanlykhachhang.mainCustomer;
     // import hoadon.*;
     public class menu {
 

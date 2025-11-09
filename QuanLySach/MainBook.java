@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainBook {
 
     public static void pause(Scanner sc) {
-        System.out.print("\nNhan 0 để tiep tuc... ");
+        System.out.print("\nNhan 0 de tiep tuc... ");
         while (true) {
             String input = sc.nextLine().trim();
             if (input.equals("0")) break;

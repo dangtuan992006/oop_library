@@ -284,6 +284,10 @@ public class QuanLySach implements Action {
         String id = sc.nextLine().trim();
 
         boolean found = false;
+        if (!found) {
+            System.out.println("Khong tim thay sach co id: " + id);
+            return;
+        }
         for (int i = 0; i < ListSach.size(); i++) {
             if (ListSach.get(i).getId().equalsIgnoreCase(id)) {
                 found = true;
@@ -297,9 +301,6 @@ public class QuanLySach implements Action {
                 }
                 break;
             }
-        }
-        if (!found) {
-            System.out.println("Khong tim thay sach co id: " + id);
         }
         ghiFile();
     }
