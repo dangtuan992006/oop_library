@@ -124,8 +124,24 @@ public class QuanLyHoaDon implements Action {
             tenKhachHang = scanner.nextLine().trim();
             System.out.print("Nhap Dia Chi Giao: ");
             diaChiGiao = scanner.nextLine().trim();
-            System.out.print("Nhap SDT: ");
-            sdt = scanner.nextLine().trim();
+            while(true)
+            {
+                System.out.print("Nhap SDT: ");
+                sdt = scanner.nextLine().trim();
+                if (sdt.isEmpty())
+                {
+                    System.out.println("SDT khong duoc de trong vui long nhap lai ");
+                    continue;
+                }
+                String noSpace = sdt.replaceAll("\\s+" , "");
+                if (!noSpace.matches("\\d{9,11}"))
+                {
+                    System.out.println("Dinh dang sdt khong hop le vui long nhap lai");
+                    continue;
+                }
+                sdt = noSpace;
+                break;
+            }
         }
 
         HoaDon hoaDon = new HoaDon(idHoaDon, idKhachHang, tenKhachHang, diaChiGiao, sdt);
@@ -220,19 +236,19 @@ public class QuanLyHoaDon implements Action {
             return;
         }
 
-        System.out.println("====================================================================================================================");
-        System.out.printf("%-8s | %-10s | %-20s | %-20s | %-12s | %-15s%n",
+        System.out.println("=================================================================================================================================================");
+        System.out.printf("%-8s | %-10s | %-20s | %-70s | %-12s | %-15s%n",
                 "MaHD", "MaKH", "Ten Khach Hang", "Dia Chi Giao", "SDT", "Tong Tien");
-        System.out.println("====================================================================================================================");
+        System.out.println("=================================================================================================================================================");
 
         for (HoaDon hd : danhSachHoaDon) {
             double tong = hd.tinhTongTien();
-            System.out.printf("%-8s | %-10s | %-20s | %-20s | %-12s | %-15.2f%n",
+            System.out.printf("%-8s | %-10s | %-20s | %-70s | %-12s | %-15.2f%n",
                     hd.getIdHoaDon(), hd.getIdKhachHang(), hd.getTenKhachHang(),
                     hd.getDiachiGiao(), hd.getSdt(), tong);
         }
 
-        System.out.println("====================================================================================================================");
+        System.out.println("=================================================================================================================================================");
     }
 
     // tim kiem hoa don
