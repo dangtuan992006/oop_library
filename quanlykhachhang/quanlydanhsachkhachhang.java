@@ -13,82 +13,72 @@ public class quanlydanhsachkhachhang implements action {
     @Override
     public void them(){
         Scanner sc = new Scanner(System.in);
-
         String ma, ten, diachi, sdt, loai;
-        System.out.print("Nhap ma khach hang: ");
-        ma = sc.nextLine();
-        System.out.print("Nhap ten khach hang: ");
-        ten = sc.nextLine();
-        System.out.print("Nhap dia chi khach hang: ");
-        diachi = sc.nextLine();
-        System.out.print("Nhap so dien thoai khach hang: ");
-        sdt = sc.nextLine();
-        System.out.print("Nhap loai khach hang: ");
-        loai = sc.nextLine();
+        boolean isMaValid;
 
-        for (customer kh : customerList) {
-            if (kh.makhachhang.equals(ma)) {
-                System.out.println("Ma khach hang da ton tai!");
-                stop();
-                return;
+        do {
+            System.out.print("Nhap loai khach hang (diamond, gold, silver): ");
+            loai = sc.nextLine().trim().toLowerCase();
+            if (!loai.equals("diamond") && !loai.equals("gold") && !loai.equals("silver")) {
+                System.out.println("Loai khach hang khong hop le. Vui long nhap lai.");
+            } else {
+                break;
             }
-        }
+        } while (true);
+
+        do {
+            System.out.print("Nhap ma khach hang: ");
+            ma = sc.nextLine().trim();
+            isMaValid = true;
+
+            for (customer kh : customerList) {
+                if (kh.makhachhang.equalsIgnoreCase(ma)) {
+                    System.out.println("Ma khach hang da ton tai!");
+                    isMaValid = false;
+                    break;
+                }
+            }
+            if (!isMaValid) continue; //??????????????????????
+
+            // Sửa lỗi logic: dùng startsWith() thay cho indexOf()
+            if ((loai.equals("diamond") && !ma.startsWith("D")) ||
+                (loai.equals("gold") && !ma.startsWith("G")) ||
+                (loai.equals("silver") && !ma.startsWith("S"))) {
+                System.out.println("Ma khach hang khong hop le! (vieest hoa chu cai dau tien)");
+                isMaValid = false;
+            }
+
+        } while (!isMaValid);
+
+        System.out.print("Nhap ten khach hang: ");
+        ten = sc.nextLine().trim();
+        System.out.print("Nhap dia chi khach hang: ");
+        diachi = sc.nextLine().trim();
+
+        do {
+            System.out.print("Nhap so dien thoai khach hang: ");
+            sdt = sc.nextLine().trim();
+            if (!sdt.matches("[0-9]+")) {
+                System.out.println("So dien thoai khong hop le (chi duoc chua so). Vui long nhap lai.");
+            } else {
+                break;
+            }
+        } while (true);
+
         switch (loai) {
             case "diamond":
-                if (ma.charAt(0) != 'D') {
-                    System.out.println("ma khach hang khong hop le! (ghi hoa chu cai dau)");
-                    System.out.println("nhap lai?[co(0)/khong(1)]: ");
-                    int choice = sc.nextInt();
-                    if (choice == 0) {
-                        them();
-                    } else {
-                        return;
-                    }
-                    return;
-                }
                 customerList.add(new diamond(ma, ten, diachi, sdt));
                 break;
             case "gold":
-                if (ma.charAt(0) != 'G') {
-                    System.out.println("ma khach hang khong hop le! (ghi hoa chu cai dau)");
-                    System.out.println("nhap lai?[co(0)/khong(1)]: ");
-                    int choice = sc.nextInt();
-                    if (choice == 0) {
-                        them();
-                    } else {
-                        return;
-                    }
-                    return;
-                }
                 customerList.add(new gold(ma, ten, diachi, sdt));
                 break;
             case "silver":
-                if (ma.charAt(0) != 'S') {
-                    System.out.println("ma khach hang khong hop le! (ghi hoa chu cai dau)");
-                    System.out.println("nhap lai?[co(0)/khong(1)]: ");
-                    int choice = sc.nextInt();
-                    if (choice == 0) {
-                        them();
-                    } else {
-                        return;
-                    }
-                    return;
-                }
                 customerList.add(new silver(ma, ten, diachi, sdt));
                 break;
-            default:
-                System.out.println("Loai khach hang khong hop le!");
-                System.out.println("nhap lai?[co(0)/khong(1)]: ");
-                int choice = sc.nextInt();
-                if (choice == 0) {
-                    them();
-                } else {
-                    return;
-                }
-                break;
         }
-        customer.tongkhachhang++;
         ghidulieu();
+        System.out.println("Them khach hang thanh cong!");
+        stop();
     }
 
 
@@ -96,25 +86,38 @@ public class quanlydanhsachkhachhang implements action {
     public void sua(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ma khach hang can sua: ");
-        String ma = sc.nextLine();
+        String ma = sc.nextLine().trim();
 
         for (customer kh : customerList) {
-            if (kh.makhachhang.equals(ma)) {
+            if (kh.makhachhang.equalsIgnoreCase(ma)) {
+                System.out.println("Tim thay khach hang. Nhap thong tin moi (de trong neu khong muon thay doi).");
+                
                 System.out.println("Nhap ten khach hang: ");
-                kh.name = sc.nextLine();
+                String tenMoi = sc.nextLine().trim();
+                if (!tenMoi.isEmpty()) kh.setName(tenMoi);
+
                 System.out.println("Nhap dia chi khach hang: ");
-                kh.diachi = sc.nextLine();
-                System.out.println("Nhap so dien thoai khach hang: ");
-                kh.sodienthoai = sc.nextLine();
-                System.out.println("Nhap loai khach hang: ");
-                kh.loaikhachhang = sc.nextLine();
-                while (!kh.loaikhachhang.equals("diamond")
-                        && !kh.loaikhachhang.equals("gold")
-                        && !kh.loaikhachhang.equals("silver")
-                        ){
-                    System.out.println("vui long nhap lai ma");
-                    kh.loaikhachhang = sc.nextLine();
-                }
+                String diaChiMoi = sc.nextLine().trim();
+                if (!diaChiMoi.isEmpty()) kh.setDiachi(diaChiMoi);
+
+                String sdtMoi;
+                do {
+                    System.out.println("Nhap so dien thoai khach hang: ");
+                    sdtMoi = sc.nextLine().trim();
+                    if (sdtMoi.isEmpty()) {
+                        break; // Khong thay doi
+                    }
+                    if (!sdtMoi.matches("[0-9]+")) {
+                        System.out.println("So dien thoai khong hop le (chi duoc chua so). Vui long nhap lai.");
+                    } else {
+                        kh.setSodienthoai(sdtMoi);
+                        break;
+                    }
+                } while (true);
+
+                // Khong cho phep sua loai khach hang de dam bao tinh nhat quan voi ma khach hang
+                System.out.println("Loai khach hang ('" + kh.getLoaikhachhang() + "') khong the thay doi.");
+
                 ghidulieu();
                 System.out.println("Sua thanh cong!");
                 return;
@@ -126,23 +129,18 @@ public class quanlydanhsachkhachhang implements action {
     @Override
     public void xoa(){
         Scanner sc = new Scanner(System.in);
-        boolean check = false;
-
         System.out.println("nhap ma khach hang can xoa: ");
-        String ma = sc.nextLine();
+        String ma = sc.nextLine().trim();
 
         for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i).makhachhang.equals(ma)) {
+            if (customerList.get(i).makhachhang.equalsIgnoreCase(ma)) {
                 customerList.remove(i);
                 System.out.println("Xoa thanh cong!");
-                check = true;
                 ghidulieu();
-                break;
+                return;
             }
         }
-        if (check == false) {
-            System.out.println("Khong tim thay khach hang!");
-        }
+        System.out.println("Khong tim thay khach hang!");
         stop();
     }
     @Override
@@ -186,7 +184,6 @@ public class quanlydanhsachkhachhang implements action {
                         System.out.println("Loai khach hang khong hop le: " + loai);
                         break;
                 }
-                customer.tongkhachhang++;
             }
             input.close();
             System.out.println("doc du lieu thanh cong!");
@@ -220,9 +217,9 @@ public class quanlydanhsachkhachhang implements action {
         Scanner sc = new Scanner(System.in);
         Boolean check = false;
         System.out.print("Nhap ma khach hang can tim: ");
-        String ma = sc.nextLine();
+        String ma = sc.nextLine().trim();
         for (customer kh : customerList){
-            if (kh.makhachhang.equals(ma)) {
+            if (kh.makhachhang.equalsIgnoreCase(ma)) {
                 kh.hienthongtin();
                 check = true;
                 break;
