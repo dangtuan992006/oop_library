@@ -38,13 +38,11 @@ public class quanlydanhsachkhachhang implements action {
                     break;
                 }
             }
-            if (!isMaValid) continue; //??????????????????????
 
-            // Sửa lỗi logic: dùng startsWith() thay cho indexOf()
-            if ((loai.equals("diamond") && !ma.startsWith("D")) ||
-                (loai.equals("gold") && !ma.startsWith("G")) ||
-                (loai.equals("silver") && !ma.startsWith("S"))) {
-                System.out.println("Ma khach hang khong hop le! (vieest hoa chu cai dau tien)");
+            if ((loai.equals("diamond") && ma.indexOf("D") != 0) ||
+                (loai.equals("gold") && ma.indexOf("G") != 0) ||
+                (loai.equals("silver") && ma.indexOf("S") != 0)) {
+                System.out.println("Ma khach hang khong hop le! (viet hoa chu cai dau tien)");
                 isMaValid = false;
             }
 
@@ -135,7 +133,15 @@ public class quanlydanhsachkhachhang implements action {
         for (int i = 0; i < customerList.size(); i++) {
             if (customerList.get(i).makhachhang.equalsIgnoreCase(ma)) {
                 customerList.remove(i);
-                System.out.println("Xoa thanh cong!");
+                System.out.print("Ban co chac chan muon xoa khach hang nay? (Y/N): ");
+                String confirm = sc.nextLine().trim();
+                if (confirm.equalsIgnoreCase("Y")) {
+                    customerList.remove(i);
+                    System.out.println("Xoa thanh cong!");
+                    ghidulieu();
+                } else {
+                    System.out.println("Da huy thao tac xoa.");
+                }
                 ghidulieu();
                 return;
             }
@@ -241,5 +247,14 @@ public class quanlydanhsachkhachhang implements action {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public customer timKhachHangTheoMa(String ma) {
+        for (customer kh : customerList) {
+            if (kh.getMakhachhang().equalsIgnoreCase(ma)) {
+                return kh;
+            }
+        }
+        return null;
     }
 }

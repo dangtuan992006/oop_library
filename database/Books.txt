@@ -18,5 +18,4 @@ NV005,De Men Phieu Luu Ky,To Hoai,75000.0,8
 RF005,1001 Meo Tin Hoc Van Phong,Nguyen Quoc K,99000.0,11
 TB004,Kinh Te Hoc Vi Mo,Trinh Thu L,125000.0,5
 TB006,TTNCKH,Nguyen Quoc Binh,99000.0,100
-CM006,1wqegdf,q?dvs,212222.0,12
-NV006,q?dgn,?dbvc,21345.0,12345
+RF006,ueafsgfh,342twregdf,1234567.0,21344

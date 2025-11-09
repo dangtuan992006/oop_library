@@ -10,16 +10,20 @@ public class ReadFile {
             String line;
             while((line = br.readLine()) != null){
                 String[] parts = line.split(",");
-                if(parts.length == 7){
-                    String hoTen = parts[0];
-                    int tuoi = Integer.parseInt(parts[1]);
-                    double luong = Double.parseDouble(parts[2]);
-                    String congViec = parts[3];
-                    String maNV = parts[4];
-                    String sdt = parts[5];
-                    String email = parts[6];
-                    NhanVien nv = new NhanVien(hoTen, tuoi, luong, congViec, maNV, sdt, email);
-                    ds.add(nv);
+                try {
+                    if(parts.length == 7){
+                        String hoTen = parts[0];
+                        int tuoi = Integer.parseInt(parts[1]);
+                        double luong = Double.parseDouble(parts[2]);
+                        String congViec = parts[3];
+                        String maNV = parts[4];
+                        String sdt = parts[5];
+                        String email = parts[6];
+                        NhanVien nv = new NhanVien(hoTen, tuoi, luong, congViec, maNV, sdt, email);
+                        ds.add(nv);
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Canh bao: Bo qua dong du lieu loi trong file nhanvien.txt -> " + line);
                 }
             }
         } catch (IOException e) {

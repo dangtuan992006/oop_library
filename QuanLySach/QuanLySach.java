@@ -136,8 +136,19 @@ public class QuanLySach implements Action {
         System.out.println("3. Sach giao khoa");
         System.out.println("4. Sach tham khao");
         System.out.print("Lua chon cua ban: ");
-        int choice = Integer.parseInt(sc.nextLine().trim());
-
+        int choice;
+        while (true) {
+            try {
+                choice = Integer.parseInt(sc.nextLine().trim());
+                if (choice >= 1 && choice <= 4) {
+                    break;
+                } else {
+                    System.out.println("Lua chon khong hop le! Vui long chon tu 1 den 4.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap mot so! Vui long nhap lai.");
+            }
+        }
         Book newBook = null;
 
         switch (choice) {
@@ -190,8 +201,13 @@ public class QuanLySach implements Action {
                     System.out.println("|__________________________________________|");
                     System.out.print("Chon mot lua chon: ");
 
-                    choice = sc.nextInt();
-                    sc.nextLine();
+                    try {
+                        choice = Integer.parseInt(sc.nextLine().trim());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Vui long nhap mot so! Vui long nhap lai.");
+                        choice = -1; // Gán giá trị không hợp lệ để lặp lại
+                        continue;
+                    }
 
                     switch (choice) {
                         case 1:
@@ -225,38 +241,44 @@ public class QuanLySach implements Action {
                             break;
 
                         case 3:
-                            System.out.print("Nhap gia moi: ");
-                            String priceStr = sc.nextLine().trim();
-                            try {
-                                double newPrice = Double.parseDouble(priceStr);
-                                System.out.println("Xac nhan doi tu " + book.getPrice() + " thanh " + newPrice);
-                                System.out.print("An Y de xac nhan, N de huy: ");
-                                decision = sc.nextLine().trim();
-                                if (decision.equalsIgnoreCase("Y")) {
-                                    book.setPrice(newPrice);
-                                    ghiFile();
-                                    System.out.println("Sua gia thanh cong!");
-                                } else System.out.println("Huy sua gia.");
-                            } catch (NumberFormatException e) {
-                                System.out.println("Gia khong hop le!");
+                            while (true) {
+                                System.out.print("Nhap gia moi: ");
+                                String priceStr = sc.nextLine().trim();
+                                try {
+                                    double newPrice = Double.parseDouble(priceStr);
+                                    System.out.println("Xac nhan doi tu " + book.getPrice() + " thanh " + newPrice);
+                                    System.out.print("An Y de xac nhan, N de huy: ");
+                                    decision = sc.nextLine().trim();
+                                    if (decision.equalsIgnoreCase("Y")) {
+                                        book.setPrice(newPrice);
+                                        ghiFile();
+                                        System.out.println("Sua gia thanh cong!");
+                                    } else System.out.println("Huy sua gia.");
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Gia khong hop le! Vui long nhap lai.");
+                                }
                             }
                             break;
 
                         case 4:
-                            System.out.print("Nhap so luong ton kho moi: ");
-                            String quantityStr = sc.nextLine().trim();
-                            try {
-                                int newQuantity = Integer.parseInt(quantityStr);
-                                System.out.println("Xac nhan doi tu " + book.getQuantity() + " thanh " + newQuantity);
-                                System.out.print("An Y de xac nhan, N de huy: ");
-                                decision = sc.nextLine().trim();
-                                if (decision.equalsIgnoreCase("Y")) {
-                                    book.setQuantity(newQuantity);
-                                    ghiFile();
-                                    System.out.println("Sua so luong thanh cong!");
-                                } else System.out.println("Huy sua so luong.");
-                            } catch (NumberFormatException e) {
-                                System.out.println("So luong khong hop le!");
+                            while (true) {
+                                System.out.print("Nhap so luong ton kho moi: ");
+                                String quantityStr = sc.nextLine().trim();
+                                try {
+                                    int newQuantity = Integer.parseInt(quantityStr);
+                                    System.out.println("Xac nhan doi tu " + book.getQuantity() + " thanh " + newQuantity);
+                                    System.out.print("An Y de xac nhan, N de huy: ");
+                                    decision = sc.nextLine().trim();
+                                    if (decision.equalsIgnoreCase("Y")) {
+                                        book.setQuantity(newQuantity);
+                                        ghiFile();
+                                        System.out.println("Sua so luong thanh cong!");
+                                    } else System.out.println("Huy sua so luong.");
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    System.out.println("So luong khong hop le! Vui long nhap lai.");
+                                }
                             }
                             break;
 
@@ -284,6 +306,8 @@ public class QuanLySach implements Action {
         String id = sc.nextLine().trim();
 
         boolean found = false;
+        boolean removed = false;
+        
         for (int i = 0; i < ListSach.size(); i++) {
             if (ListSach.get(i).getId().equalsIgnoreCase(id)) {
                 found = true;
@@ -291,18 +315,20 @@ public class QuanLySach implements Action {
                 String confirm = sc.nextLine().trim();
                 if (confirm.equalsIgnoreCase("Y")) {
                     ListSach.remove(i);
+                    removed = true;
                     System.out.println("Da xoa thanh cong sach co id: " + id);
                 } else {
                     System.out.println("Huy xoa sach.");
                 }
                 break;
             }
-            if (!found) {
-                System.out.println("Khong tim thay sach co id: " + id);
-                return;
-            }
         }
-        ghiFile();
+        if (!found) {
+            System.out.println("Khong tim thay sach co id: " + id);
+            return;
+        } else if (removed) {
+            ghiFile();
+        }
     }
     
     // Tim kiem sach

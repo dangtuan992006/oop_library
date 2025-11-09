@@ -8,7 +8,8 @@ public class Menu{
         System.out.println("3. Sua thong tin nhan vien.");
         System.out.println("4. Tim kiem nhan vien.");
         System.out.println("5. Tinh Luong nhan vien.");
-        System.out.println("6. Thoat chuong trinh.");
+        System.out.println("6. Hien thi danh sach nhan vien.");
+        System.out.println("7. Thoat chuong trinh.");
         System.out.println("==========================");
     }
 }

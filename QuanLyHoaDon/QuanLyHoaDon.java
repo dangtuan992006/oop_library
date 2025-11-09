@@ -2,6 +2,8 @@ package QuanLyHoaDon;
 
 import java.io.*;
 import java.util.*;
+import quanlykhachhang.customer;
+import quanlykhachhang.quanlydanhsachkhachhang;
 import QuanLySach.Book;
 import QuanLySach.QuanLySach;
 
@@ -96,28 +98,35 @@ public class QuanLyHoaDon implements Action {
 
     // them hoa don
     @Override
-    public void them(QuanLySach quanLySach) {
+    public void them(QuanLySach quanLySach, quanlydanhsachkhachhang qlKhachHang) {
         String idHoaDon;
         do {
             System.out.print("Nhap ID Hoa Don: ");
             idHoaDon = scanner.nextLine().trim();
             if (tonTaiId(idHoaDon)) {
                 System.out.println("ID nay da ton tai, vui long nhap ID khac!");
-                idHoaDon = null;
+                idHoaDon = "";
             }
-        } while (idHoaDon == null || idHoaDon.isEmpty());
+        } while (idHoaDon.isEmpty());
 
         System.out.print("Nhap ID Khach Hang: ");
         String idKhachHang = scanner.nextLine().trim();
+        customer kh = qlKhachHang.timKhachHangTheoMa(idKhachHang);
 
-        System.out.print("Nhap Ten Khach Hang: ");
-        String tenKhachHang = scanner.nextLine().trim();
+        String tenKhachHang, diaChiGiao, sdt;
 
-        System.out.print("Nhap Dia Chi Giao: ");
-        String diaChiGiao = scanner.nextLine().trim();
-
-        System.out.print("Nhap SDT: ");
-        String sdt = scanner.nextLine().trim();
+        if (kh != null) {
+            tenKhachHang = kh.getName();
+            diaChiGiao = kh.getDiachi();
+            sdt = kh.getSodienthoai();
+        } else {
+            System.out.print("Nhap Ten Khach Hang: ");
+            tenKhachHang = scanner.nextLine().trim();
+            System.out.print("Nhap Dia Chi Giao: ");
+            diaChiGiao = scanner.nextLine().trim();
+            System.out.print("Nhap SDT: ");
+            sdt = scanner.nextLine().trim();
+        }
 
         HoaDon hoaDon = new HoaDon(idHoaDon, idKhachHang, tenKhachHang, diaChiGiao, sdt);
 
@@ -126,8 +135,17 @@ public class QuanLyHoaDon implements Action {
             String idSach = scanner.nextLine().trim();
             Book book = quanLySach.searchForBill(idSach);
             if (book != null) {
-                System.out.print("Nhap So Luong: ");
-                int soLuong = Integer.parseInt(scanner.nextLine());
+                int soLuong;
+                while (true) {
+                    System.out.print("Nhap So Luong: ");
+                    try {
+                        soLuong = Integer.parseInt(scanner.nextLine().trim());
+                        if (soLuong > 0) break;
+                        System.out.println("So luong phai lon hon 0.");
+                    } catch (NumberFormatException e) {
+                        System.out.println("So luong khong hop le! Vui long nhap lai mot so.");
+                    }
+                }
 
                 if (book.getQuantity() >= soLuong) {
                     Sach sanPham = new Sach(book.getId(), book.getTitle(), book.getPrice(), soLuong, book.getAuthor());
@@ -150,6 +168,11 @@ public class QuanLyHoaDon implements Action {
         quanLySach.ghiFile();
         System.out.println("Them hoa don thanh cong!");
     }
+
+    // @Override
+    // public void them(QuanLySach quanLySach) {
+    //     System.out.println("Loi: Chuc nang nay can duoc cung cap them thong tin khach hang.");
+    // }
 
     // sua hoa don
     @Override

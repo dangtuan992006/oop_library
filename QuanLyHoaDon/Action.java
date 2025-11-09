@@ -1,7 +1,8 @@
 package QuanLyHoaDon;
 import QuanLySach.QuanLySach;
+import quanlykhachhang.quanlydanhsachkhachhang;
 public interface Action {
-    void them(QuanLySach quanLySach);
+    void them(QuanLySach quanLySach, quanlydanhsachkhachhang qlKhachHang);
     void sua();
     void xoa();
     void timkiem();

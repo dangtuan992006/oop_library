@@ -7,10 +7,26 @@ public class ThemNV {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ho ten: ");
         String hoTen = sc.nextLine();
-        System.out.println("nhap tuoi: ");
-        int tuoi = Integer.parseInt(sc.nextLine());
-        System.out.println("nhap luong: ");
-        double luong = Double.parseDouble(sc.nextLine());
+        int tuoi;
+        while(true){
+            System.out.println("nhap tuoi: ");
+            try{
+                tuoi = Integer.parseInt(sc.nextLine());
+                break;
+            } catch(NumberFormatException e){
+                System.out.println("Tuoi khong hop le! Vui long nhap lai mot so.");
+            }
+        }
+        double luong;
+        while(true){
+            System.out.println("nhap luong: ");
+            try{
+                luong = Double.parseDouble(sc.nextLine());
+                break;
+            } catch(NumberFormatException e){
+                System.out.println("Luong khong hop le! Vui long nhap lai mot so.");
+            }
+        }
         System.out.println("nhap cong viec: ");
         String congViec = sc.nextLine();
         System.out.println("nhap ma nhan vien: ");

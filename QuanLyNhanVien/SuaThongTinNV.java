@@ -18,15 +18,31 @@ public class SuaThongTinNV{
                 if(!hoTenMoi.isEmpty()){
                     nv.setHoTen(hoTenMoi);
                 }
-                System.out.print("Tuoi moi: ");
-                String tuoiMoi = sc.nextLine();
-                if(!tuoiMoi.isEmpty()){
-                    nv.setTuoi(Integer.parseInt(tuoiMoi));
+                while(true){
+                    System.out.print("Tuoi moi: ");
+                    String tuoiMoiStr = sc.nextLine();
+                    if(tuoiMoiStr.isEmpty()){
+                        break; // Bo qua neu khong nhap
+                    }
+                    try{
+                        nv.setTuoi(Integer.parseInt(tuoiMoiStr));
+                        break; // Nhap hop le, thoat vong lap
+                    } catch(NumberFormatException e){
+                        System.out.println("Tuoi khong hop le! Vui long nhap lai mot so.");
+                    }
                 }
-                System.out.print("Luong moi: ");
-                String luongMoi = sc.nextLine();
-                if(!luongMoi.isEmpty()){
-                    nv.setLuong(Double.parseDouble(luongMoi));
+                while(true){
+                    System.out.print("Luong moi: ");
+                    String luongMoiStr = sc.nextLine();
+                    if(luongMoiStr.isEmpty()){
+                        break; // Bo qua neu khong nhap
+                    }
+                    try{
+                        nv.setLuong(Double.parseDouble(luongMoiStr));
+                        break; // Nhap hop le, thoat vong lap
+                    } catch(NumberFormatException e){
+                        System.out.println("Luong khong hop le! Vui long nhap lai mot so.");
+                    }
                 }
                 System.out.print("Cong viec moi: ");
                 String congViecMoi = sc.nextLine();

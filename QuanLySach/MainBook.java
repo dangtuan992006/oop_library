@@ -35,8 +35,14 @@ public class MainBook {
             System.out.println("| 7. Quay lai menu tong                    |");
             System.out.println("|__________________________________________|");
             System.out.print("Chon mot lua chon: ");
-            choice = sc.nextInt();
-            sc.nextLine();
+            try {
+                choice = Integer.parseInt(sc.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap mot so! Vui long nhap lai.");
+                choice = -1; // Gán giá trị không hợp lệ để lặp lại
+                pause(sc);
+                continue;
+            }
 
             switch (choice)
             {

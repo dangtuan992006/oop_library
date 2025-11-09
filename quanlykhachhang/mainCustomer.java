@@ -23,15 +23,14 @@ public class mainCustomer {
             System.out.println(("|___________________________________________________|"));
             System.out.print(("Nhap lua chon: "));
             
-            
-            
-            
-            while (!scanner.hasNextInt()) {
-                System.out.print("Vui long nhap so nguyen: ");
-                scanner.next();
+            try {
+                choice = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap mot so! Vui long nhap lai.");
+                choice = -1; // Gán giá trị không hợp lệ để lặp lại
+                continue;
             }
-            choice = scanner.nextInt();
-            scanner.nextLine();
+
             switch(choice){
                 case 1:
                     qlds.hiendanhsach();

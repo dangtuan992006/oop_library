@@ -10,5 +10,5 @@ public interface Action{
     void hienThi(ArrayList<NhanVien> ds);
     void docFile(String filename, ArrayList<NhanVien> ds);
     void ghiFile(String filename, ArrayList<NhanVien> ds);
-    void tinhLuong(ArrayList<NhanVien> ds);
+    void tinhLuong(ArrayList<NhanVien> ds, Scanner sc);
 }

@@ -39,15 +39,18 @@ public class QL_NhanVien {
                     quanLy.tim(ds, sc);
                     break;
                 case 5: //---tinh luong NV:
-                    quanLy.tinhLuong(ds);
+                    quanLy.tinhLuong(ds, sc);
                     break;
-                case 6: //---thoat:
+                case 6: //---hien thi danh sach NV:
+                    quanLy.hienThi(ds);
+                    break;
+                case 7: //---thoat:
                     System.out.println("Thoat chuong trinh.");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while(choice != 6);
-        sc.close();
+        } while(choice != 7);
+        // sc.close();
     }
 }

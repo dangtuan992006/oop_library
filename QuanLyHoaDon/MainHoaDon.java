@@ -1,15 +1,19 @@
 package QuanLyHoaDon;
 
 import java.util.Scanner;
+
 import QuanLySach.QuanLySach;
+import quanlykhachhang.quanlydanhsachkhachhang;
 
 public class MainHoaDon {
     public static void main(String[] args) {
         QuanLyHoaDon qlHoaDon = new QuanLyHoaDon();
         QuanLySach qlNhaSach = new QuanLySach();
+        quanlydanhsachkhachhang qlKhachHang = new quanlydanhsachkhachhang();
 
         qlHoaDon.DocFile();
         qlNhaSach.docFile();
+        qlKhachHang.docdulieu();
 
         Scanner scanner = new Scanner(System.in);
         int chon;
@@ -28,17 +32,17 @@ public class MainHoaDon {
             System.out.println("|____________________________________________________|");
             System.out.print("Nhap lua chon: ");
 
-            // Kiểm tra nhập sai kiểu
-            while (!scanner.hasNextInt()) {
-                System.out.print("Vui long nhap so nguyen: ");
-                scanner.next();
+            try {
+                chon = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap mot so! Vui long nhap lai.");
+                chon = -1; // Gán giá trị không hợp lệ để lặp lại
+                continue;
             }
-            chon = scanner.nextInt();
-            scanner.nextLine(); //doc bo dong trong
 
             switch (chon) {
                 case 1:
-                    qlHoaDon.them(qlNhaSach);
+                    qlHoaDon.them(qlNhaSach, qlKhachHang);
                     break;
                 case 2:
                     qlHoaDon.sua();
