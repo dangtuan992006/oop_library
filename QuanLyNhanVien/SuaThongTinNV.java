@@ -53,7 +53,7 @@ public class SuaThongTinNV{
                 while(true){
                     System.out.print("So dien thoai moi: ");
                     sdtMoi = sc.nextLine();
-                    if(!sdtMoi.isEmpty()){
+                    if(!sdtMoi.isEmpty() ){
                         nv.setSdt(sdtMoi);
                     }
                     if(sdtMoi.matches("\\d{10}")){

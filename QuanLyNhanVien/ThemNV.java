@@ -12,7 +12,11 @@ public class ThemNV {
             System.out.println("nhap tuoi: ");
             try{
                 tuoi = Integer.parseInt(sc.nextLine());
-                break;
+                if (tuoi > 0 && tuoi <= 100) {
+                    break;
+                } else {
+                    System.out.println("Tuoi khong hop le! Vui long nhap tuoi trong khoang 1-100.");
+                }
             } catch(NumberFormatException e){
                 System.out.println("Tuoi khong hop le! Vui long nhap lai mot so.");
             }
@@ -31,10 +35,27 @@ public class ThemNV {
         String congViec = sc.nextLine();
         System.out.println("nhap ma nhan vien: ");
         String maNV = sc.nextLine();
-        System.out.println("nhap so dien thoai: ");
-        String sdt = sc.nextLine();
-        System.out.println("nhap email: ");
-        String email = sc.nextLine();
+        String sdt;
+        while(true){
+            System.out.println("nhap so dien thoai: ");
+            sdt = sc.nextLine();
+            if(sdt.matches("\\d{10}")){
+                break;
+            } else {
+                System.out.println("So dien thoai khong hop le. Vui long nhap lai (10 chu so).");
+            }
+        }
+        String email;
+        while(true){
+            System.out.println("nhap email: ");
+            email = sc.nextLine();
+            //---bieu thuc chinh quy kiem tra dinh dang email @gmail.com
+            if(email.matches("^[a-zA-Z0-9._%+-]+@gmail\\.com$")){
+                break;
+            } else {
+                System.out.println("Email khong hop le. Vui long nhap lai (vi du: ten@gmail.com).");
+            }
+        }
 
         NhanVien nv = new NhanVien(hoTen, tuoi, luong, congViec, maNV, sdt, email);
         System.out.println("Da them nhan vien moi.");

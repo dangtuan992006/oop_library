@@ -4,7 +4,7 @@ RF003,Bach Khoa Tri Thuc,Le Van C,175000.0,6
 RF004,Huong Dan Su Dung Excel,Pham Thi D,95000.0,12
 CM001,Doraemon Tap 1,Fujiko F. Fujio,30000.0,20
 CM002,Conan Tap 100,Gosho Aoyama,35000.0,25
-CM003,Dragon Ball Super,Akira Toriyama,40000.0,18
+CM003,Dragon Ball Super,Akira Toriyama,40000.0,4
 CM004,One Piece Tap 105,Eiichiro Oda,38000.0,15
 NV001,Nha Gia Kim,Paulo Coelho,90000.0,12
 NV002,Dac Nhan Tam,Dale Carnegie,85000.0,10
@@ -18,4 +18,3 @@ NV005,De Men Phieu Luu Ky,To Hoai,75000.0,8
 RF005,1001 Meo Tin Hoc Van Phong,Nguyen Quoc K,99000.0,11
 TB004,Kinh Te Hoc Vi Mo,Trinh Thu L,125000.0,5
 TB006,TTNCKH,Nguyen Quoc Binh,99000.0,100
-RF006,ueafsgfh,342twregdf,1234567.0,21344
