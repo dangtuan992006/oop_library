@@ -18,47 +18,67 @@ public class SuaThongTinNV{
                 if(!hoTenMoi.isEmpty()){
                     nv.setHoTen(hoTenMoi);
                 }
+
+                String tuoiMoi;
                 while(true){
                     System.out.print("Tuoi moi: ");
-                    String tuoiMoiStr = sc.nextLine();
-                    if(tuoiMoiStr.isEmpty()){
-                        break; // Bo qua neu khong nhap
-                    }
                     try{
-                        nv.setTuoi(Integer.parseInt(tuoiMoiStr));
-                        break; // Nhap hop le, thoat vong lap
-                    } catch(NumberFormatException e){
-                        System.out.println("Tuoi khong hop le! Vui long nhap lai mot so.");
+                        tuoiMoi = sc.nextLine();
+                        if(!tuoiMoi.isEmpty()){
+                            nv.setTuoi(Integer.parseInt(tuoiMoi));
+                        }
+                        if(Integer.parseInt(tuoiMoi) > 0 && Integer.parseInt(tuoiMoi) < 100){
+                            nv.setTuoi(Integer.parseInt(tuoiMoi));
+                            break;
+                        } else {
+                            System.out.println("Tuoi khong hop le. Vui long nhap lai.");
+                        }
+                    }catch (NumberFormatException e){
+                        System.out.println("Vui long nhap mot so nguyen cho tuoi.");
                     }
                 }
-                while(true){
-                    System.out.print("Luong moi: ");
-                    String luongMoiStr = sc.nextLine();
-                    if(luongMoiStr.isEmpty()){
-                        break; // Bo qua neu khong nhap
-                    }
-                    try{
-                        nv.setLuong(Double.parseDouble(luongMoiStr));
-                        break; // Nhap hop le, thoat vong lap
-                    } catch(NumberFormatException e){
-                        System.out.println("Luong khong hop le! Vui long nhap lai mot so.");
-                    }
+
+                System.out.print("Luong moi: ");
+                String luongMoi = sc.nextLine();
+                if(!luongMoi.isEmpty()){
+                    nv.setLuong(Double.parseDouble(luongMoi));
                 }
                 System.out.print("Cong viec moi: ");
                 String congViecMoi = sc.nextLine();
                 if(!congViecMoi.isEmpty()){
                     nv.setCongViec(congViecMoi);
                 }
-                System.out.print("So dien thoai moi: ");
-                String sdtMoi = sc.nextLine();
-                if(!sdtMoi.isEmpty()){
-                    nv.setSdt(sdtMoi);
+
+                String sdtMoi;
+                while(true){
+                    System.out.print("So dien thoai moi: ");
+                    sdtMoi = sc.nextLine();
+                    if(!sdtMoi.isEmpty()){
+                        nv.setSdt(sdtMoi);
+                    }
+                    if(sdtMoi.matches("\\d{10}")){
+                        nv.setSdt(sdtMoi);
+                        break;
+                    }else{
+                        System.out.println("So dien thoai khong hop le. Vui long nhap lai.");
+                    }
                 }
-                System.out.print("Email moi: ");
-                String emailMoi = sc.nextLine();
-                if(!emailMoi.isEmpty()){
-                    nv.setEmail(emailMoi);
+
+                String emailMoi;
+                while(true){
+                    System.out.print("Email moi: ");
+                    emailMoi = sc.nextLine();
+                    if(!emailMoi.isEmpty()){
+                        nv.setEmail(emailMoi);
+                    }
+                    if(emailMoi.matches("^[a-zA-Z0-9._%+-]+@gmail\\.com$")){
+                        nv.setEmail(emailMoi);
+                        break;
+                    }else{
+                        System.out.println("Email khong hop le. Vui long nhap lai.");
+                    }
                 }
+
                 System.out.println("Da cap nhat thong tin nhan vien.");
                 System.out.println("==========Thong tin nhan vien sau khi sua==========");
                 nv.xuat();

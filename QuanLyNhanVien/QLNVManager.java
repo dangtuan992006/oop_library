@@ -57,7 +57,7 @@ public class QLNVManager implements Action {
     }
     @Override
     public void tinhLuong(ArrayList<NhanVien> ds, Scanner sc){
-        TinhLuong.tinhLuong(ds,sc);
+        TinhLuong.tinhLuong(ds);
         WriteFile.writeFile("database/nhanvien.txt", ds);
     }
 }
